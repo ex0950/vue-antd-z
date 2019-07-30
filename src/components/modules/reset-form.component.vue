@@ -1,12 +1,12 @@
 <template>
-    <div>
-        <slot></slot>
-    </div>
+  <div>
+    <slot />
+  </div>
 </template>
 
 <script type="text/javascript">
     export default {
-        name: "search-list",
+        name: "SearchList",
         props: {
             form: {
                 type: Object,

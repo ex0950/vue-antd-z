@@ -1,38 +1,41 @@
 <template>
-    <div class="wrap">
-        <!-- 面包屑下标题 -->
-        <div class="wrap-title">
-            <span class="wrap-title-text" >
-                <slot name="title">{{ title }}</slot>
-            </span>
-        </div>
-
-        <!-- header -->
-        <div class="wrap-header">
-            <slot name="header"></slot>
-            <slot name="button"></slot>
-        </div>
-
-        <!-- container-->
-        <div class="wrap-cont">
-            <div class="wrap-cont-cover">
-                <div class="wrap-container">
-                    <!-- 默认插槽 -->
-                    <slot></slot>
-                </div>
-            </div>
-        </div>
-
-        <!-- footer -->
-        <div class="wrap-footer bg-white" :class="{'footerStyle':footerStyle}">
-            <slot name="footer"></slot>
-        </div>
+  <div class="wrap">
+    <!-- 面包屑下标题 -->
+    <div class="wrap-title">
+      <span class="wrap-title-text">
+        <slot name="title">{{ title }}</slot>
+      </span>
     </div>
+
+    <!-- header -->
+    <div class="wrap-header">
+      <slot name="header" />
+      <slot name="button" />
+    </div>
+
+    <!-- container-->
+    <div class="wrap-cont">
+      <div class="wrap-cont-cover">
+        <div class="wrap-container">
+          <!-- 默认插槽 -->
+          <slot />
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div
+      class="wrap-footer bg-white"
+      :class="{'footerStyle':footerStyle}"
+    >
+      <slot name="footer" />
+    </div>
+  </div>
 </template>
 
 <script type="text/javascript">
     export default {
-        name: "contentComponent",
+        name: "ContentComponent",
         data() {
             return {
                 title: "",

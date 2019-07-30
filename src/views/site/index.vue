@@ -1,21 +1,21 @@
 <template>
-    <content-view>
-        11
-    </content-view>
+  <content-view>
+    11
+  </content-view>
 </template>
 
 <script type="text/javascript">
 export default {
-    name: "siteIndex",
+    name: "SiteIndex",
     components: {},
     props: {},
     data() {
         return {};
     },
     computed: {},
-    methods: {},
     created() {},
-    mounted() {}
+    mounted() {},
+    methods: {}
 }
 </script>
 <style lang="scss">

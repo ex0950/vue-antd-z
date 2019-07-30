@@ -1,11 +1,13 @@
 <template>
-    <header class="header-cmp">
-        <a-icon :type="aside_collapsed ? 'menu-unfold' : 'menu-fold'"
-                @click="setCollapsed"></a-icon>
-        <div class="header-right">
-            11
-        </div>
-    </header>
+  <header class="header-cmp">
+    <a-icon
+      :type="aside_collapsed ? 'menu-unfold' : 'menu-fold'"
+      @click="setCollapsed"
+    />
+    <div class="header-right">
+      11
+    </div>
+  </header>
 </template>
 
 <script type="text/javascript">
@@ -13,7 +15,7 @@ import { mapMutations, mapGetters } from "vuex";
 import UserInfoTool from "../../plugins/user-info-tool";
 
 export default {
-    name: "header-component",
+    name: "HeaderComponent",
     props: {
         module: {
             type: String,

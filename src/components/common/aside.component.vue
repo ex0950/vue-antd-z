@@ -1,20 +1,27 @@
 <template>
   <aside class="aside">
     <a-menu
-      :inlineCollapsed="aside_collapsed"
-      :openKeys.sync="openKeys"
-      @click="menu"
+      v-model="selectedKeys"
+      :inline-collapsed="aside_collapsed"
+      :open-keys.sync="openKeys"
       mode="inline"
       theme="dark"
-      v-model="selectedKeys"
+      @click="menu"
     >
       <template v-for="item in routes">
-        <a-menu-item :key="item.name" v-if="!item.meta.unfold">
+        <a-menu-item
+          v-if="!item.meta.unfold"
+          :key="item.name"
+        >
           <!-- <icon :type="item.meta.icon" /> -->
           <a-icon type="align-center" />
           <span>{{ item.meta.name }}</span>
         </a-menu-item>
-        <aside-item :key="item.name" :menuInfo="item" v-else></aside-item>
+        <aside-item
+          v-else
+          :key="item.name"
+          :menu-info="item"
+        />
       </template>
     </a-menu>
   </aside>
@@ -26,16 +33,16 @@ import { mapMutations, mapGetters } from "vuex";
 import AsideItem from "./aside-item.component";
 
 export default {
-  name: "aside-component",
+  name: "AsideComponent",
+  components: {
+    AsideItem
+  },
   data() {
     return {
       routes: [],
       selectedKeys: [],
       openKeys: []
     };
-  },
-  components: {
-    AsideItem
   },
   computed: {
     ...mapGetters(["aside_collapsed"])

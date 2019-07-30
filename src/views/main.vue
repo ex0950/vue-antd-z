@@ -1,28 +1,32 @@
 <template>
-    <div class="main">
-        <aside-com></aside-com>
+  <div class="main">
+    <aside-com />
 
-        <div class="main-container scroll">
-            <header-com></header-com>
+    <div class="main-container scroll">
+      <header-com />
 
-            <div class="main-container-cover">
-                <div class="main-breadcrumb">
-                    <!-- 面包屑 -->
-                    <a-breadcrumb class="main-breadcrumb-cover">
-                        <a-breadcrumb-item v-for="(item, index) in breadcrumbList"
-                                           :key="index">
-                            <router-link :to="{ name: item.name, query: item.query }">
-                                {{ item.meta.bread || item.meta.name }}
-                            </router-link>
-                        </a-breadcrumb-item>
-                    </a-breadcrumb>
-                </div>
-
-                <router-view></router-view>
-            </div>
-            <div class="footer">Copyright © 2018 哲合科技</div>
+      <div class="main-container-cover">
+        <div class="main-breadcrumb">
+          <!-- 面包屑 -->
+          <a-breadcrumb class="main-breadcrumb-cover">
+            <a-breadcrumb-item
+              v-for="(item, index) in breadcrumbList"
+              :key="index"
+            >
+              <router-link :to="{ name: item.name, query: item.query }">
+                {{ item.meta.bread || item.meta.name }}
+              </router-link>
+            </a-breadcrumb-item>
+          </a-breadcrumb>
         </div>
+
+        <router-view />
+      </div>
+      <div class="footer">
+        Copyright © 2018 哲合科技
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -30,20 +34,23 @@ import AsideCom from "@/components/common/aside.component";
 import HeaderCom from "@/components/common/header.component";
 
 export default {
-    name: "home",
+    name: "Home",
+    components: {
+        AsideCom,
+        HeaderCom
+    },
     data() {
         return {
             breadcrumbList: []
         };
     },
-    components: {
-        AsideCom,
-        HeaderCom
-    },
     watch: {
         $route(data) {
             this.processBread(data);
         }
+    },
+    mounted() {
+        this.processBread(this.$route);
     },
     methods: {
         /**
@@ -74,9 +81,6 @@ export default {
             }
             return temp;
         }
-    },
-    mounted() {
-        this.processBread(this.$route);
     }
 };
 </script>
